@@ -1,0 +1,40 @@
+let possibleNaipes: [String] = ["copas", "ouros", "espadas", "paus"]
+let possibleIndex: [String] = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+enum Naipe:String, CaseIterable{
+    case copas = "copas"
+    case ouros = "ouros"
+    case espadas = "espadas"
+    case paus = "paus"
+    
+    var emoji: String{
+        switch self {
+            case .copas:
+            return "♥️"
+            case .ouros:
+            return "♦️"
+            case .espadas:
+            return "♠️"
+            case .paus:
+            return "♣️"
+        }
+    }
+}
+struct Card{
+    let Naipe: Naipe
+    let Index: String
+}
+func randomCard() -> Card{
+    let randomNaipe = Int.random(in: 0...3)
+    let randomIndex = Int.random(in: 0...12)
+    let naipeString   = possibleNaipes[randomNaipe]
+    let index = possibleIndex[randomIndex]
+    let naipe = Naipe(rawValue: naipeString)!
+    let finalCard: Card = Card(Naipe: naipe, Index: index )
+    print(randomIndex, randomNaipe, index, naipe)
+    return finalCard
+}
+func showCard() {
+    let newCard = randomCard()
+    print("Indece: \(newCard.Index)", "Naipe: \(newCard.Naipe.rawValue) \(newCard.Naipe.emoji)")
+}
+showCard()
