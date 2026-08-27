@@ -38,3 +38,90 @@ func showCard() {
     print("Indece: \(newCard.Index)", "Naipe: \(newCard.Naipe.rawValue) \(newCard.Naipe.emoji)")
 }
 showCard()
+
+
+/*
+import SwiftUI
+
+let possibleNaipes: [String] = ["copas", "ouros", "espadas", "paus"]
+let possibleIndex: [String] = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+
+enum Naipe:String, CaseIterable{
+    case copas = "copas"
+    case ouros = "ouros"
+    case espadas = "espadas"
+    case paus = "paus"
+    
+    var emoji: String{
+        switch self {
+        case .copas:
+            return "♥️"
+        case .ouros:
+            return "♦️"
+        case .espadas:
+            return "♠️"
+        case .paus:
+            return "♣️"
+        }
+    }
+}
+
+struct Card{
+    let Naipe: Naipe
+    let Index: String
+}
+
+func randomCard() -> Card{
+    let randomNaipe = Int.random(in: 0...3)
+    let randomIndex = Int.random(in: 0...12)
+    
+    let naipeString = possibleNaipes[randomNaipe]
+    let index = possibleIndex[randomIndex]
+    
+    let naipe = Naipe(rawValue: naipeString)!
+    let finalCard: Card = Card(Naipe: naipe, Index: index )
+    
+    print(randomIndex, randomNaipe, index, naipe)
+    return finalCard
+}
+
+let newCard = randomCard()
+
+func showCardInfo() {
+    print("Indice: \(newCard.Index)", "Naipe: \(newCard.Naipe.rawValue) \(newCard.Naipe.emoji)")
+}
+
+showCardInfo()
+
+#Preview("PlayingCard", traits: .sizeThatFitsLayout) {
+    let minhaFoto: newCard
+    ZStack {
+        Color.black
+        VStack {
+            Text(newCard.Index)
+                .foregroundStyle(.white)
+                .fontDesign(.serif)
+            HStack { Spacer()}
+                .frame(width: 250)
+        }
+        VStack {
+            Text(newCard.Index)
+                .foregroundStyle(.white)
+                .fontDesign(.serif)
+            HStack { Spacer()}
+                .frame(width: 50)
+        }
+        .padding(.horizontal)
+        .padding(.top, 36)
+        .padding(.bottom, 26)
+        .background(.white)
+        .overlay(alignment: .topTrailing) {
+            Image(.sticker)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+        }
+    }
+    .frame(width: 500, height: 600)
+}
+*/
